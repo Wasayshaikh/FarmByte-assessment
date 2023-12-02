@@ -3,7 +3,7 @@ import { FontAwesomeIcon as FAIcons } from "@fortawesome/react-fontawesome";
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { Link } from 'react-router-dom';
 
-export default function Navbar(): JSX.Element {
+const Navbar = () => {
     const [openNav, setOpenNav] = useState<boolean>(false);
     const [mobileScreen, setMobileScreen] = useState<boolean>(false);
 
@@ -31,23 +31,24 @@ export default function Navbar(): JSX.Element {
         setOpenNav(!openNav);
     }
     return (
-        <nav className='lg:container m-auto'>
-            <div className='w-100  flex justify-between p-2'>
-                <div className='p-2'>
-                    <span className='text-lg'>Nav Heading</span>
+        <nav className='bg-primary text-white'>
+            <div className='w-100  flex justify-between  lg:container m-auto'>
+                <div className='nav-item'>
+                    <span className='text-xl font-semibold'><Link  className ='nav-link' to={'/'}> Assessment </Link></span>
                 </div>
                 <ul className={` ${mobileScreen ? `hidden` : `flex`}`}>
-                    <li className='p-2'><Link to={'/'}> Home </Link></li>
-                    <li className='p-2'><Link to={'/posts'}> Post </Link></li>
+                    <li className='nav-item'><Link  className ='nav-link' to={'/'}> Home </Link></li>
+                    <li className='nav-item'><Link  className ='nav-link' to={'/posts'}> Post </Link></li>
                 </ul>
-                <div className={`p-2   ${mobileScreen ? `` : `hidden`}`}>
+                <div className={`nav-link   ${mobileScreen ? `` : `hidden`}`}>
                     <FAIcons className=' cursor-pointer' icon={faBars} size={'xl'} onClick={openMobileNav} />
                 </div>
             </div>
-            <ul className={`px-4 bg-green-300 h-auto max-h-0 absolute right-3 w-52 ${openNav ? `!max-h-[200px]` : ``} md:hidden overflow-hidden transition-all duration-150 delay-[display, 150s]`}>
-                <li className='p-2 cursor-pointer'><Link to={'/'}> Home </Link></li>
-                <li className='p-2 cursor-pointer'><Link to={'/posts'}> Post </Link></li>
+            <ul className={` bg-primary h-auto max-h-0 absolute right-3 w-52 ${openNav ? `!max-h-[200px]` : ``} md:hidden overflow-hidden transition-all duration-150 delay-[display, 150s]`}>
+                <li className='nav-item '><Link className='nav-link' to={'/'}> Home </Link></li>
+                <li className='nav-item '><Link className ='nav-link' to={'/posts'}> Post </Link></li>
             </ul>
         </nav>
     )
 }
+export default  Navbar
