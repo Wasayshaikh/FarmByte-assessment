@@ -1,20 +1,27 @@
 import { useEffect, useState } from "react"
+import PostCard from "../../components/PostCard";
 
 
-export default function Posts() {
-  const [post, setPost] = useState<null | Array<object>>(null);
+type ApiType = {
+  userId: number,
+  id: number,
+  title: string,
+  body: string
+}
+const Posts = () => {
+  const [posts, setPosts] = useState<null | Array<ApiType>>(null);
   useEffect(() => {
-     const getPost = async ():Promise<void> => {
+    const getPost = async (): Promise<void> => {
       try {
-        const posts = await fetch("https://jsonplaceholder.typicode.com/posts", {
+        const result = await fetch("https://jsonplaceholder.typicode.com/posts", {
 
           method: "GET"
         }
 
         ).then(r => r.json())
-        setPost(posts)
+        setPosts(result)
       } catch (error) {
-        
+
       }
 
     }
@@ -22,16 +29,23 @@ export default function Posts() {
 
 
   }, [])
-  console.log(typeof(post))
-  console.log(post)
   return (
-   
-    <div>
-      {post === null ? (<p>loading</p>):post.map((pp:any)=>(
-        <div key={pp.id}>{pp.title}</div>
-      ))
 
-      }
-    </div>
+    <div className="lg:container m-auto py-4">
+
+      <div className=" flex flex-wrap">
+        {
+          posts === null ? (<p>loading</p>) :
+            posts.map(
+              (post) =>
+              (
+                <PostCard key={post.id} data={post} />
+              )
+            )
+
+        }
+      </div>
+    </div >
   )
 }
+export default Posts
