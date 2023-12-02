@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <div className=' bg-gray-300'>
+    <div>
      <Navbar />
      <Routes>
         <Route path="/" element={<Home />} />
