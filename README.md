@@ -6,6 +6,11 @@ Completed the assesment project with React + Vite + TypeScript
 ## For Styling
 used Tailwindcss for styling and responsiveness
 
+## Project Demo
+
+https://github.com/Wasayshaikh/FarmByte-assessment/assets/71258604/7914389b-ae28-4da7-bdbf-cbcac41cd063
+
+
 ## Installation
 To install my project 
 
@@ -34,4 +39,5 @@ Run project
 npm run dev
 
 ```
+
 
