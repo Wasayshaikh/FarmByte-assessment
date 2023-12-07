@@ -8,8 +8,7 @@ used Tailwindcss for styling and responsiveness
 
 ## Project Demo
 
-https://github.com/Wasayshaikh/FarmByte-assessment/assets/71258604/7914389b-ae28-4da7-bdbf-cbcac41cd063
-
+https://github.com/Wasayshaikh/FarmByte-assessment/assets/71258604/0504082d-f91d-4e18-a28a-28325d378264
 
 ## Installation
 To install my project 
